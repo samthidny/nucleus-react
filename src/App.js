@@ -9,6 +9,7 @@ import DateArea from './DateArea';
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux';
 import reducers from './reducers';
+import DateInfo from './DateInfo';
 
 function reducer(state, action) {
   console.log('REDUCER heard ' + action.type + ' setting date to ' + action.date);
@@ -40,6 +41,7 @@ function App() {
       <div className="App">
         <Header />
         <DateArea />
+        <DateInfo />
       </div>
     </Provider>
   );
