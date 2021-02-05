@@ -13,8 +13,13 @@ export default function Calendar({onDateChange}) {
   useEffect(() => {
     console.log('useEffect ' + wc);
     wc.current.addEventListener('change', calendarChangeHandler);
+    return () => {
+      // Called when component unmounts
+      wc.current.removeEventListener('change', calendarChangeHandler);
+    }
   });
 
+  console.log('Render Calendar');
   return (
     <div>
       <h2>React Calendar</h2>

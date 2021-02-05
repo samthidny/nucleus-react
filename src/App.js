@@ -4,44 +4,52 @@ import Test from './Test';
 import Calendar from './Calendar';
 import { useState } from 'react';
 import Header from './Header';
-import DateArea from './DateArea';
+
+import DefaultReducer from './reducers/DefaultReducer';
 
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux';
-import reducers from './reducers';
 import DateInfo from './DateInfo';
+import Main from './Main';
 
-function reducer(state, action) {
-  console.log('REDUCER heard ' + action.type + ' setting date to ' + action.date);
-  return  { currentDate: action.date || new Date() };
-}
+// function reducer(state, action) {
+//   console.log('App REDUCER heard ' + action.type + ' setting date to ' + action.date);
+//   return  { startDate: state.date || new Date(), endDate: state.date || new Date()  };
+// }
 
 const INITIAL_STATE = {
-  currentDate: new Date()
+  startDate: new Date(),
+  endDate: new Date(),
+  counter: 0
 };
 
-const store = createStore(reducer, INITIAL_STATE);
+
 
 function App() {
 
-  const [currentDate, setCurrentDate] = useState( {
-    currentDate: new Date()
-  });
-  const createStoreWithMiddleware = applyMiddleware()(createStore);
+  // const reducer = DefaultReducer
+  const store = createStore(DefaultReducer, INITIAL_STATE);
+
+
+  // const [currentDate, setCurrentDate] = useState( {
+  //   startDate: new Date(),
+  //   endDate: new Date()
+  // });
+
+  //const createStoreWithMiddleware = applyMiddleware()(createStore);
 
   //const currentDate = new Date();
 
-  function dateChangeHandler(date) {
-    console.log('App date changed ' + date);
-    setCurrentDate(date);
-  }
+  // function dateChangeHandler(date) {
+  //   console.log('App date changed xxx ' + date);
+  //   //setCurrentDate(date);
+  //   store.startDate = date;
+  // }
 
   return (
     <Provider store={store}>
       <div className="App">
-        <Header />
-        <DateArea />
-        <DateInfo />
+        <Main />
       </div>
     </Provider>
   );
