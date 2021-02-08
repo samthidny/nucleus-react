@@ -13,9 +13,10 @@ export default function DateSelector( {title, onDateChange} ) {
   useEffect(() => {
     console.log('useEffect ' + wc);
     wc.current.addEventListener('change', calendarChangeHandler);
+    const xx = wc;
     return () => {
       // Called when component unmounts
-      wc.current.removeEventListener('change', calendarChangeHandler);
+      xx.current.removeEventListener('change', calendarChangeHandler);
     }
   });
 

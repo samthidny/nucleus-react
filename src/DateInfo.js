@@ -23,9 +23,26 @@ export default function DateInfo() {
   const counter = createSelector('counter', counter => counter);
 
   return (
-    <div>
-      <h3>Counter {counter}</h3>
-      <p>Start: {startDate.toString()} End: {endDate.toString()}</p>
-    </div>
+        <dl className="dl-row">
+        <div>
+          <dt>Start Date</dt>
+          <dd>{startDate.toString()}</dd>
+          <dd>
+            <a href="#!">Change start date</a>
+          </dd>
+        </div>
+        <div>
+          <dt>End Date</dt>
+          <dd>{endDate.toString()}</dd>
+          <dd>
+            <a href="#!">Change end date</a>
+          </dd>
+        </div>
+        <div>
+          <dt>Counter</dt>
+          <dd>{counter}</dd>
+        </div>
+        </dl>
   );
+
 }

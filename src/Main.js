@@ -27,12 +27,47 @@ export default function Main() {
     })
   }
 
+  // return (
+  //   <div>
+  //     <DateSelector title="Start Date" name="startDate" onDateChange={startDateChangeHandler} />
+  //     <DateSelector title="End Date" name="endDate" onDateChange={endDateChangeHandler}  />
+  //     <button onClick={clickHandler}>CLICK ME</button>
+  //     <DateInfo />
+  //   </div>
+  // )
+
   return (
-    <div>
-      <DateSelector title="Start Date" name="startDate" onDateChange={startDateChangeHandler} />
-      <DateSelector title="End Date" name="endDate" onDateChange={endDateChangeHandler}  />
-      <button onClick={clickHandler}>CLICK ME</button>
+    <main className="ndsn">
+      <h1>NDSN</h1> 
+      <ns-panel>
+        <ns-tabs>
+          <ns-tab slot="tab" selected="true">Start Date</ns-tab>
+            <ns-panel slot="panel">
+              <div>
+                <DateSelector title="Start Date" name="startDate" onDateChange={startDateChangeHandler} />
+              </div>
+            </ns-panel>
+          <ns-tab slot="tab">End Date</ns-tab>
+            <ns-panel slot="panel">
+              <div>
+                <DateSelector title="End Date" name="endDate" onDateChange={endDateChangeHandler} />
+              </div>
+            </ns-panel>
+          <ns-tab slot="tab">Counter</ns-tab>
+            <ns-panel slot="panel">
+              <div>
+                <button onClick={clickHandler}>CLICK ME</button>
+              </div>
+              <ns-cta onClick={clickHandler}>Hello</ns-cta>
+            </ns-panel>
+          <ns-tab slot="tab">Rewards</ns-tab>
+        </ns-tabs>
+      </ns-panel>
+
+
       <DateInfo />
-    </div>
+
+    </main>
   )
+
 }
