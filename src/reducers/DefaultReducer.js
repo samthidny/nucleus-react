@@ -1,7 +1,8 @@
 const DefaultReducer = function(state, action) {
   console.log('App REDUCER heard ' + action.type + ' setting date to ' + action.date);
 
-  const copy = { startDate: state.startDate, endDate: state.endDate, counter: state.counter }
+  // const copy = { startDate: state.startDate, endDate: state.endDate, counter: state.counter }
+  const copy = { ...state }
 
   switch (action.type) {
 
@@ -17,6 +18,11 @@ const DefaultReducer = function(state, action) {
 
     case 'INC_COUNT' : {
       copy.counter += 1;
+    }
+
+    case 'UPDATE_USER' : {
+      console.log('UPDATE USER ' + action.name + ' to ' + action.value);
+      copy[action.name] = action.value;
     }
 
   }

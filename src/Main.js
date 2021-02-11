@@ -2,6 +2,8 @@ import DateSelector from './DateSelector';
 import DateInfo from './DateInfo';
 
 import { useDispatch } from 'react-redux'
+import Form from './Form';
+import UserSummary from './UserSummary';
 
 export default function Main() {
 
@@ -27,18 +29,13 @@ export default function Main() {
     })
   }
 
-  // return (
-  //   <div>
-  //     <DateSelector title="Start Date" name="startDate" onDateChange={startDateChangeHandler} />
-  //     <DateSelector title="End Date" name="endDate" onDateChange={endDateChangeHandler}  />
-  //     <button onClick={clickHandler}>CLICK ME</button>
-  //     <DateInfo />
-  //   </div>
-  // )
-
   return (
     <main className="ndsn">
-      <h1>NDSN</h1> 
+      <ns-panel>
+        <Form />
+        <UserSummary />
+        <DateInfo />
+      </ns-panel> 
       <ns-panel>
         <ns-tabs>
           <ns-tab slot="tab" selected="true">Start Date</ns-tab>
@@ -60,13 +57,12 @@ export default function Main() {
               </div>
               <ns-cta onClick={clickHandler}>Hello</ns-cta>
             </ns-panel>
-          <ns-tab slot="tab">Rewards</ns-tab>
+          <ns-tab slot="tab">User Details</ns-tab>
+          <ns-panel slot="panel">
+              <Form />
+            </ns-panel>
         </ns-tabs>
       </ns-panel>
-
-
-      <DateInfo />
-
     </main>
   )
 
