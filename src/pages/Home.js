@@ -1,4 +1,4 @@
-import React from 'react'
+import { Link } from "react-router-dom";
 
 export default function Home() {
   return (
@@ -26,7 +26,7 @@ export default function Home() {
             </ul>
           </div>
           <a slot="cta" href="intro">
-            <ns-cta type="direct" loading="false">Start your move</ns-cta>
+          <Link to="/move-date"><ns-cta type="direct" loading="false">Start your move</ns-cta></Link>
           </a>
           <ns-image slot="image" ratio="4x3" src="https://cdn-assets-eu.frontify.com/s3/frontify-enterprise-files-eu/eyJwYXRoIjoiY2VudHJpY2FcL2FjY291bnRzXC8wZlwvNDAwMDE1N1wvcHJvamVjdHNcLzlcL2Fzc2V0c1wvNWVcLzE5NDAzXC9lN2M1YjQzNDIyYWNjYjUxYjEyOWQxODU4YmJkYjMyZi0xNTY3MDgxNjM2LmpwZyJ9:centrica:W5NaTtvvJFb_LQOnYbUkoimEBxAa4hCNNPiJP-usygo?width=400">
           </ns-image>

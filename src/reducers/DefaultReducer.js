@@ -6,6 +6,23 @@ const DefaultReducer = function(state, action) {
 
   switch (action.type) {
 
+    case 'METER_READ' : {
+      copy.gasMeterReading = action.gasMeterReading;
+      copy.electricityMeterReading = action.electricityMeterReading;
+      break;
+    }
+
+
+    case 'UPDATE_MOVE_DATE' : {
+      copy.moveDate = action.value;
+      break;
+    }
+
+    case 'UPDATE_POSTCODE' : {
+      copy.postcode = action.value;
+      break;
+    }
+
     case 'START_DATE_CHANGE' : {
       copy.startDate = action.date;
       break;
@@ -24,10 +41,15 @@ const DefaultReducer = function(state, action) {
       console.log('UPDATE USER ' + action.name + ' to ' + action.value);
       copy[action.name] = action.value;
     }
+    
+    case 'UPDATE_ADDRESS' : {
+      console.log('UPDATE ADDRESS REDUCER ' + action.name + ' to ' + action.value);
+      copy.address = action.value;
+    }
 
   }
 
-  console.log('New State ' + copy);
+  console.log('ACTION: ' + action.type + ' - New State ', copy);
   return copy;
 }
 

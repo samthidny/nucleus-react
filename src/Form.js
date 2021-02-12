@@ -36,7 +36,9 @@ export default function Form() {
       ref.current.addEventListener('change', handler);
       return () => {
         // Called when component unmounts
-        ref.current.removeEventListener('change', handler);
+        if (ref.current) {
+          ref.current.removeEventListener('change', handler);
+        }
       }
     };
   }
@@ -60,7 +62,9 @@ export default function Form() {
   useEffect(() => {
     formRef.current.addEventListener('submit', formSubmitHandler);
     return () => {
-      formRef.current.removeEventListener('submit', formSubmitHandler);
+      if (formRef.current) {
+        formRef.current.removeEventListener('submit', formSubmitHandler);
+      }
     }
   });
 

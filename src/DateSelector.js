@@ -16,7 +16,9 @@ export default function DateSelector( {title, onDateChange} ) {
     const xx = wc;
     return () => {
       // Called when component unmounts
-      xx.current.removeEventListener('change', calendarChangeHandler);
+      if (xx.current) {
+        xx.current.removeEventListener('change', calendarChangeHandler);
+      }
     }
   });
 
